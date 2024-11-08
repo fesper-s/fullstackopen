@@ -4,15 +4,21 @@ const Button = ({ clickHandle, text }) => (
     <button onClick={clickHandle}>{text}</button>
 )
 
-const ShowStatics = ({ good, neutral, bad }) => (
-    <div>
-        <p>
-            good {good}<br />
-            neutral {neutral}<br />
-            bad {bad}
-        </p>
-    </div>
-)
+const ShowStatics = ({ good, neutral, bad }) => {
+    const sumOfAll = good + neutral + bad
+    return (
+        <div>
+            <p>
+                good {good}<br />
+                neutral {neutral}<br />
+                bad {bad}<br />
+                all {sumOfAll}<br />
+                average {(good + bad * -1) / sumOfAll}<br />
+                positive {(good / sumOfAll) * 100} %
+            </p>
+        </div>
+    )
+}
 
 const App = () => {
     const [good, setGood] = useState(0)
