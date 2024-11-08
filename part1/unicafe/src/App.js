@@ -6,6 +6,10 @@ const Button = ({ clickHandle, text }) => (
 
 const Statics = (props) => {
     const sumOfAll = props.good + props.neutral + props.bad
+
+    if (sumOfAll === 0)
+        return <p>No feedback given</p>
+
     return (
         <div>
             <p>
