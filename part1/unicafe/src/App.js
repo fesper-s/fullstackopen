@@ -4,17 +4,17 @@ const Button = ({ clickHandle, text }) => (
     <button onClick={clickHandle}>{text}</button>
 )
 
-const ShowStatics = ({ good, neutral, bad }) => {
-    const sumOfAll = good + neutral + bad
+const Statics = (props) => {
+    const sumOfAll = props.good + props.neutral + props.bad
     return (
         <div>
             <p>
-                good {good}<br />
-                neutral {neutral}<br />
-                bad {bad}<br />
+                good {props.good}<br />
+                neutral {props.neutral}<br />
+                bad {props.bad}<br />
                 all {sumOfAll}<br />
-                average {(good + bad * -1) / sumOfAll}<br />
-                positive {(good / sumOfAll) * 100} %
+                average {(props.good + props.bad * -1) / sumOfAll}<br />
+                positive {(props.good / sumOfAll) * 100} %
             </p>
         </div>
     )
@@ -32,7 +32,7 @@ const App = () => {
             <Button clickHandle={() => setNeutral(neutral + 1)} text={'neutral'} />
             <Button clickHandle={() => setBad(bad + 1)} text={'bad'} />
             <h1>statics</h1>
-            <ShowStatics good={good} neutral={neutral} bad={bad}/>
+            <Statics good={good} neutral={neutral} bad={bad}/>
         </div>
     )
 }
